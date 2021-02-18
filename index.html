@@ -1,0 +1,60 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team-Maker</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">With textarea</span>
+        </div>
+        <textarea
+          class="form-control"
+          id="names"
+          aria-label="With textarea"
+        ></textarea>
+      </div>
+    </div>
+    <script>
+      function randomNames() {
+        // let names = document.getElementById("names").value;
+        // let namesarray = names.split(/[,\n]+/g);
+        let namesarray = ["viren", "patil", "bek", "kaustubh", "padwal"];
+        let teams = 3;
+
+        let pairs = [];
+        for (let i = 0; i < teams; i++) {
+          pairs.push([]);
+        }
+        console.log(pairs.length);
+
+        for (let i = 0; i < namesarray.length; i++) {
+          let ranname =
+            namesarray[Math.floor(Math.random() * namesarray.length)];
+          console.log(ranname);
+          let countertwo = 0;
+          while (countertwo < teams) {
+            let counter = 0;
+            while (counter < pairs[countertwo].length) {
+              if (pairs[counter].includes(ranname) != true) {
+                pairs[counter].push(ranname);
+              }
+              counter += 1;
+            }
+            countertwo += 1;
+          }
+        }
+        console.log(pairs);
+      }
+    </script>
+  </body>
+</html>
