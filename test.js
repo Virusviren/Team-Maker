@@ -27,13 +27,17 @@ function randomNames() {
   for (let i = 0; i < teams; i++) {
     pairs.push([]);
   }
-
+  //Try to add the pop method to the array also
   for (let i = 0; i < arrlen; i++) {
-    let randomnumber = Math.floor(Math.random() * teams);
-
-    pairs[randomnumber].push(randomArr[i]);
+    let pushed = false;
+    while (pushed === false) {
+      let randomnumber = Math.floor(Math.random() * teams);
+      if (pairs[randomnumber].length != 2) {
+        pairs[randomnumber].push(randomArr[i]);
+        pushed = true;
+      }
+    }
   }
   console.log(pairs);
 }
-
 randomNames();
